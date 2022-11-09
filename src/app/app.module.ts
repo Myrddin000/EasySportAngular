@@ -1,18 +1,47 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MenubarModule } from 'primeng/menubar';
+import { MenuItem } from 'primeng/api';
+import { ButtonModule } from 'primeng/button';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MessageService } from 'primeng/api';
+import { MenuService } from './Features/services/Menu.service';
+import { MessageModule } from 'primeng/message';
+import { InputTextModule } from 'primeng/inputtext';
+import { HomeComponent } from './HomePage/home/home.component';
+import { CardModule} from 'primeng/card';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MenubarModule,
+    ButtonModule,
+    MessageModule,
+    HttpClientModule,
+    InputTextModule,
+    CardModule,
+    FormsModule,
+    ReactiveFormsModule,
+   
   ],
-  providers: [],
+
+
+  providers: [{provide : LOCALE_ID, useValue : 'fr-BE'},
+  MessageService],
   bootstrap: [AppComponent]
+
+  
 })
+
+
+
 export class AppModule { }
