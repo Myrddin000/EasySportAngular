@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { BrowserModule } from "@angular/platform-browser";
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -11,6 +11,14 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { CardModule} from 'primeng/card';
+import {CalendarModule} from 'primeng/calendar';
+import {SelectButtonModule} from 'primeng/selectbutton';
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+import {TableModule} from 'primeng/table';
+import {ToolbarModule} from 'primeng/toolbar';
+import { SplitButtonModule } from 'primeng/splitbutton';
+
+
 
 @NgModule({
   declarations: [
@@ -27,6 +35,13 @@ import { CardModule} from 'primeng/card';
 		ButtonModule,
     RippleModule,
     CardModule,
+    CalendarModule,
+    SelectButtonModule,
+    TableModule,
+    ToolbarModule,
+    SplitButtonModule,
+    
+    
   ]
 })
 export class UsersModule { }

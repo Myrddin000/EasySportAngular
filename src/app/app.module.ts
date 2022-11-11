@@ -7,18 +7,19 @@ import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
-import { MenuService } from './Features/services/Menu.service';
 import { MessageModule } from 'primeng/message';
 import { InputTextModule } from 'primeng/inputtext';
 import { HomeComponent } from './HomePage/home/home.component';
 import { CardModule} from 'primeng/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -31,7 +32,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CardModule,
     FormsModule,
     ReactiveFormsModule,
-   
+    BrowserAnimationsModule,
+    
   ],
 
 

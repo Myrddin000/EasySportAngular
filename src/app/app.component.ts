@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { MenuService } from './Features/services/Menu.service';
 import { AuthService } from './Features/services/auth.service';
 import { UserConnected } from './Features/users/models';
 
@@ -9,32 +8,46 @@ import { UserConnected } from './Features/users/models';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
   title = 'EasySport_Front';
   items: MenuItem[] = [];
   UserConnected! : UserConnected
 
-  constructor(private _MenuService : MenuService, private _AuthService : AuthService){
+  constructor(private _AuthService : AuthService){
 
   }
 
-ngOnInit() {
+  ngOnInit() {
+    
+    this._AuthService.StateSubjectUserConnect.subscribe({
+      next : (data : UserConnected) => this.UserConnected = data
+    })
+    this._AuthService.StateSubjectItemMenu.subscribe({
+      next : (data : MenuItem[]) => this.items = data
+    })
+
   
-  this._MenuService.StateSubjectItemMenu.subscribe({
-    next : (data : MenuItem[]) => {this.items = data}
-  })
-
-  this.GetMenu()
+    this.GetUsersConnect()
+    this.GetMenu()
 
 
+  }
+
+
+  GetUsersConnect(){
+    this._AuthService.GetUserConnect()
   }
 
   GetMenu(){
-    this._MenuService.GetMenu()
+    this._AuthService.GetMenu()
   }
 
  
   Logout(){
+    
     this._AuthService.Logout()
+    
   }
+
 }

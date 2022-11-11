@@ -16,7 +16,13 @@ export interface UserConnected{
     pseudo: string | null | undefined;
     email: string | null | undefined;
     role: number | null | undefined;
-    connect: boolean | undefined;
+    connect : boolean | undefined;
+}
+
+export interface UsersDisplay{
+    id: string;
+    pseudo : string;
+    email : string;
 }
 
 

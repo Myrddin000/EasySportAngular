@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
+    "@rxweb/reactive-form-validators": "^2.1.7",
     "primeicons": "^6.0.1",
     "primeng": "^14.1.2",
     "rxjs": "~7.5.0",

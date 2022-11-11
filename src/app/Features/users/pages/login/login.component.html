@@ -1,26 +1,27 @@
 <p>login works!</p>
+<div id="container"> 
+    <div class="card" id="responsive">
+        <p-card header="Connexion"> 
+            <form [formGroup]="fg" (ngSubmit)="submit()">
 
-<div class="card" id="responsive">
-    <p-card header="Connexion"> 
-        <form [formGroup]="fg" (ngSubmit)="submit()">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <input type="text" formControlName="Login" pInputText placeholder="Pseudo">         
+                </div>
+                
+                <br>
 
-            <div class="p-inputgroup">
-                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                <input type="text" formControlName="Login" pInputText placeholder="Pseudo">         
-            </div>
-            
-            <br>
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+                    <input type="password" formControlName="Password" pInputText placeholder="Mot de passe">         
+                </div>
+                
+                <br>
 
-            <div class="p-inputgroup">
-                <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
-                <input type="password" formControlName="Password" pInputText placeholder="Mot de passe">         
-            </div>
-            
-            <br>
-
-            <div>
-                <button type="submit" pButton icon="pi pi-check" style="margin-left:.25em"></button>
-            </div>
-        </form>
-    </p-card>
-</div>
+                <div>
+                    <button type="submit" pButton icon="pi pi-check" style="margin-left:.25em"></button>
+                </div>
+            </form>
+        </p-card>
+    </div>
+</div>   
