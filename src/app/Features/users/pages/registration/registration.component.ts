@@ -13,7 +13,7 @@ export class RegistrationComponent implements OnInit {
 
   fg! : FormGroup
 
-  constructor(private _usersServices: UsersService, private _formBuilder : FormBuilder, private _Http : HttpClient, private _router :  Router) { }
+  constructor(private _usersService: UsersService, private _formBuilder : FormBuilder, private _Http : HttpClient, private _router :  Router) { }
 
   ngOnInit(): void {
 
@@ -56,6 +56,6 @@ export class RegistrationComponent implements OnInit {
       this.validateAllFormFields(this.fg)
       return
     }
-    this._usersServices.NewUser(this.fg)
+    this._usersService.NewUser(this.fg)
     }
 }

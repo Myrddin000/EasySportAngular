@@ -1,0 +1,47 @@
+<p>create works!</p>
+
+<div id="container"> 
+    <div class="card" id="responsive">
+        <p-card header="Inscription"> 
+            <form [formGroup]="fg" (ngSubmit)="submit()">
+                <!-- Name -->
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <input type="text" formControlName="Name" pInputText placeholder="Name">         
+                </div>
+                <div id="InvalidState" *ngIf="hasError(fg,'Name', 'required')">
+                    <p><i class="pi pi-exclamation-circle"></i>Obligatoire!</p>
+                </div>
+    
+                <br>
+    
+                <!-- Sport -->
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-send"></i></span>
+                    <input type="text" formControlName="Sport" pInputText placeholder="Sport">         
+                </div>
+    
+                <div id="InvalidState" *ngIf="hasError(fg,'Sport', 'required')">
+                <p><i class="pi pi-exclamation-circle"></i>Obligatoire!</p>
+                </div>
+                <br>
+
+                <!-- Captain's Id + Name -->
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <input type="text" formControlName="UserId" pInputText placeholder="Captain's Id">         
+                </div>
+                <div id="InvalidState" *ngIf="hasError(fg,'UserId', 'required')">
+                    <p><i class="pi pi-exclamation-circle"></i>Obligatoire!</p>
+                </div>
+    
+                <br>
+                
+                <br><br>
+    
+                <div>
+                    <button type="submit" pButton icon="pi pi-check" style="margin-left:.25em"></button>
+                </div>
+            </form>
+        </p-card>
+</div>   

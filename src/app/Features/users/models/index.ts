@@ -26,14 +26,17 @@ export interface UsersDisplay{
 }
 
 
-
-
-
-
-
 export interface  UserForm {
 pseudo:	string
 email: string
 password: string
 
+}
+
+export interface UserDetails{
+    id: string;
+    pseudo: string;
+    email: string;
+    password : string
+    role: number;
 }

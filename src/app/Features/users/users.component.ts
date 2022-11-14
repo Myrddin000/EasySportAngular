@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { UsersService } from '../services/users.service';
@@ -38,14 +39,18 @@ export class UsersComponent /*implements OnInit*/ {
         this.items = [
           {
               label: 'Update',
-              icon: 'pi pi-refresh'
+              icon: 'pi pi-refresh',
+              command: () => {
+
+                this.GoToEdit();
+            },
           },
           {
               label: 'Delete',
               icon: 'pi pi-times',
               command: () => {
 
-                this.DeleteUser(this.id);
+                this.DeleteUser();
             },
               
           },
@@ -55,13 +60,21 @@ export class UsersComponent /*implements OnInit*/ {
     GetUsersList(){
       this._usersService.GetUsersList();
     }
-    DeleteUser(id : string){
-      this._usersService.DeleteUser(id);
+
+    DeleteUser(){
+      this._usersService.DeleteUser(this.id);
     }
 
     GetId(id : string){
+      console.log(this.id);
       
       this.id = id
     }
+
+    GoToEdit(){
+      this._router.navigate(['users/update/'+ this.id])
+    }
+
+    
 
 }

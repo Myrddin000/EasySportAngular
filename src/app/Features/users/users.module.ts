@@ -17,6 +17,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import {TableModule} from 'primeng/table';
 import {ToolbarModule} from 'primeng/toolbar';
 import { SplitButtonModule } from 'primeng/splitbutton';
+import { UpdateComponent } from './pages/update/update.component';
 
 
 
@@ -24,7 +25,8 @@ import { SplitButtonModule } from 'primeng/splitbutton';
   declarations: [
     UsersComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    UpdateComponent
   ],
   imports: [
     CommonModule,

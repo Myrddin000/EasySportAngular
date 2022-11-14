@@ -2,47 +2,35 @@
 
 <br>
 <div id="container">
-    <p-card header="Utilisateurs" > 
-        <div>
-                <button type="button" pButton class="p-button-raised p-button-rounded" icon="pi pi-plus-circle" style="margin-left:.25em; float: right; margin-top: -60px;" [routerLink]="['/users/registration']" ></button>
-        </div>
+    <p-card header="Users" > 
         <p-table [value]="UsersList"> 
             
             <ng-template pTemplate = "header">
                 <tr>
-                    
                     <th pSortableColumn="pseudo" style="width:30%; color: #81c784;">Pseudo
                         <p-sortIcon field="pseudo"></p-sortIcon>
                     </th>
                     <th pSortableColumn="email" style="width:30%; color: #81c784;" class="bg-teal-500">E-mail
                         <p-sortIcon field="email"></p-sortIcon>
                     </th>
-                    <th></th>
+                    <th>
+                        <div>
+                            <button type="button" label="NEW" pButton class="p-button-rounded" icon="pi pi-plus-circle" style="margin-left:.25em; float: right;" [routerLink]="['/users/registration']" ></button>
+                        </div>
+                    </th>
                 </tr>
             </ng-template>
 
             <ng-template pTemplate="body" let-UsersList>
 
                 <tr>
-                  
                     <td>{{UsersList.pseudo}}</td>
                     <td>{{UsersList.email}}</td>
                     <td>
-                        
-                            <div class="p-toolbar-group-right">
-                                <p-splitButton  label="" class="split" icon="pi pi-ellipsis-h" (click)="GetId(UsersList.id)" [model]="items" styleClass="p-button-primary p-button-raised p-button-rounded"></p-splitButton>
-                            </div>
-                        
-                    </td>
-                    
-                        <!-- <div *ngIf="!UserConnected.Connect" >  
-                            <button type="button" pButton icon="pi pi-search-plus" style="margin-left:.25em" (click)=" GetDetails(TournamentList.id)"></button>
+                        <div class="p-toolbar-group-right">
+                            <p-splitButton  label="" class="split"  icon="pi pi-ellipsis-h" (click)="GetId(UsersList.id)" [model]="items" styleClass="p-button-primary p-button-raised p-button-rounded p-button-outlined"></p-splitButton>
                         </div>
-                        <div *ngIf="UserConnected.Connect" >  
-                            <button type="button" class="p-button-primary" pButton icon="pi pi-search-plus" style="margin-left:.25em" (click)=" GetDetails(TournamentList.id)"></button>
-                            <button *ngIf="TournamentList.canRegister" type="button" class="p-button-warning" pButton icon="pi pi-sign-in" style="margin-left:.25em" (click)="SubscribeToTournament(TournamentList.id)"></button>
-                            <button *ngIf="TournamentList.isRegistered" type="button" class="p-button-danger" pButton icon="pi pi-sign-out" style="margin-left:.25em" (click)="UnsubscribeFromTournament(TournamentList.id)"></button>
-                        </div> -->
+                    </td>  
                 </tr>
 
 
