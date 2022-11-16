@@ -12,56 +12,33 @@ import { UserDetails, UserForm } from '../../models';
 })
 export class UpdateComponent implements OnInit {
 
-  fg! : FormGroup
-  UserForm: UserForm = {pseudo: '', email:'', password:''}
+  fg : FormGroup  =new FormGroup({});
+  UserForm!: UserForm
   id! : string
-
-  
-  // formGroup : FormGroup;
 
   constructor(private _usersService : UsersService, private _formBuilder : FormBuilder, private _Http : HttpClient, private _router : Router, private _activatedRoute : ActivatedRoute) { }
 
   ngOnInit(): void {
 
     this._usersService.StateSubjectUserForm.subscribe({
-      next : (data : UserForm) => this.UserForm = data
-    })
+      next : (data : UserForm) => {this.UserForm = data,
+        
+        this.fg = new FormGroup(
+          {
+    
+          Pseudo : new FormControl(this.UserForm.pseudo, [Validators.required, /*RxwebValidators.compare({conditionalExpression : this.pseudo})*/]),
+          Email : new FormControl(this.UserForm.email, [Validators.required, RxwebValidators.email()]),
+          Password : new FormControl(this.UserForm.password, Validators.required),
+          ConfirmPassword : new FormControl(this.UserForm.password, RxwebValidators.compare({fieldName: 'Password'})), 
+          }
+        )
+        
+      
+  }})
     this.GetById(this._activatedRoute.snapshot.params['id'])
-
-
-
-
-    //remplir au chargement
-
-    this.fg = this._formBuilder.group({
-      
-      
-      Pseudo : [null, Validators.required, /*RxwebValidators.compare({conditionalExpression : this.pseudo})*/],
-      Email : [null, [Validators.required, RxwebValidators.email()]],
-      Password : [null, Validators.required],
-      ConfirmPassword : [null, RxwebValidators.compare({fieldName: 'Password'})],
-      
-      
-    })
-    
-    
 
   }
 
-  // ngAfterViewChecked(){
-  //   this.fg.setValue({
-  //     Pseudo : this.UserForm.pseudo,
-  //     Email: this.UserForm.email,
-  //     Password : this.UserForm.password,
-  //     ConfirmPassword : this.UserForm.password,
-  //   })
-  // }
-
-  // setDefaultValue(){
-  //   this.formGroup.patchValue({
-  //     Id : this.items[1].value
-  //   })
-  // }
 
 
   validateAllFormFields(formGroup: FormGroup) { 

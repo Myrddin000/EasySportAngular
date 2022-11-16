@@ -13,6 +13,7 @@ import { HomeComponent } from './HomePage/home/home.component';
 import { CardModule} from 'primeng/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { DockModule } from 'primeng/dock';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    
+    DockModule,
   ],
 
 

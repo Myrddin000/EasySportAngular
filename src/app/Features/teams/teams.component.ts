@@ -38,8 +38,12 @@ export class TeamsComponent implements OnInit {
       },
     },
       {
-          label: 'Update',
-          icon: 'pi pi-refresh'
+          label: 'Edit',
+          icon: 'pi pi-refresh',
+          command: () => {
+
+            this.GoToUpdate();
+        },
       },
       {
           label: 'Delete',
@@ -57,6 +61,7 @@ export class TeamsComponent implements OnInit {
 
   GetTeamsList(){
     this._teamsService.GetTeamsList();
+    
   }
 
   GetId(id : string){
@@ -68,6 +73,13 @@ export class TeamsComponent implements OnInit {
     console.log(this.id);
     
     this._router.navigate(['teams/details/'+ this.id])
+  }
+
+  GoToUpdate(){
+    console.log(this.id);
+
+    this._router.navigate(['teams/update/'+ this.id])
+    
   }
 
   DeleteTeam(){

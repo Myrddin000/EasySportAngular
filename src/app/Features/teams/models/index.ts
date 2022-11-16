@@ -1,6 +1,5 @@
 export interface TeamsDisplay {
     id: string;
-    number: number;
     name: string;
     sport: string;
     userId: string;
@@ -11,3 +10,10 @@ export interface TeamsDisplay {
     sport: string;
     userId: string;
   }
+
+  // export interface TeamDetails{
+  //   id: string;
+  //   name: string;
+  //   sport: string;
+  //   userId: string;
+  // }

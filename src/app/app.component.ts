@@ -36,7 +36,7 @@ export class AppComponent {
 
 
   GetUsersConnect(){
-    this._AuthService.GetUserConnect()
+    this._AuthService.IfUserConnected()
   }
 
   GetMenu(){

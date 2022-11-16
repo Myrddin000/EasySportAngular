@@ -1,9 +1,9 @@
-<p>create works!</p>
+<p>update works!</p>
 
 <div id="container"> 
     <div class="card" id="responsive">
-        <p-card header="Create Team"> 
-            <form [formGroup]="fg" (ngSubmit)="submit()">
+        <p-card header="Edit Team"> 
+            <form [formGroup]="fg" *ngIf="TeamForm === undefined ? false : true" (ngSubmit)="submit()">
                 <!-- Name -->
                 <div class="p-inputgroup">
                     <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>

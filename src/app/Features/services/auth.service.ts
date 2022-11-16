@@ -26,6 +26,7 @@ export class AuthService {
   Login(value: any){
 
     return this._Http.post<LoginUser>(environment.api_base_url + 'Auth', value).subscribe(
+      
       {
         next : (data: LoginUser) => {this.UserRegistered = data,
           
@@ -34,14 +35,16 @@ export class AuthService {
           localStorage.setItem('pseudo', this.UserRegistered.userRegistered.pseudo)
           localStorage.setItem('email', this.UserRegistered.userRegistered.email)
           localStorage.setItem('role', this.UserRegistered.userRegistered.role.toString())
-          localStorage.setItem('connect', 'true'), this.GetUserConnect(), this.GetMenu(),
+          localStorage.setItem('connect', 'true'), this.IfUserConnected(), this.GetMenu(),
           this._router.navigate([''])},
-          error : (response) => {this._messageService.add({severity:'error', summary: response.error, life: 3000})}
-
+        error : (response) => {this._messageService.add({severity:'error', summary: response.error, life: 3000})}
+           
+            
         }
+        
     ) }
 
-  GetUserConnect(){
+  IfUserConnected(){
     
     
     if(localStorage['connect'] === 'true'){
@@ -64,7 +67,7 @@ export class AuthService {
 
   Logout(){
     localStorage.clear()
-    this.GetUserConnect()
+    this.IfUserConnected()
     this.GetMenu()
   }
 

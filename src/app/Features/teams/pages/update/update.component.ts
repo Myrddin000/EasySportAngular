@@ -1,33 +1,38 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TeamsService } from 'src/app/Features/services/teams.service';
+import { MenuItem } from 'primeng/api';
+import { TeamForm } from '../../models';
 
 @Component({
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss']
+  templateUrl: './update.component.html',
+  styleUrls: ['./update.component.scss']
 })
-export class CreateComponent implements OnInit {
+export class UpdateComponent implements OnInit {
 
   fg! : FormGroup
-
-  test = localStorage.getItem('id')
-
-  // UserId! : string;
-
-  constructor(private _teamsService : TeamsService, private _Http : HttpClient, private _router : Router, private _formBuilder : FormBuilder) { }
+  TeamForm!: TeamForm
+  constructor(private _teamsService : TeamsService, private _formBuilder : FormBuilder, private _Http : HttpClient, private _router : Router, private _activatedRoute : ActivatedRoute) { }
 
   ngOnInit(): void {
 
-    this.fg = this._formBuilder.group({
-      Name: [null, Validators.required],
-      Sport: [null, Validators.required],
-      UserId: [localStorage.getItem('id'), Validators.required],
-    })
-   
-  }
+    this._teamsService.StateSubjectTeamForm.subscribe({
+      next : (data : TeamForm) => {this.TeamForm = data,
 
+    this.fg = this._formBuilder.group(
+      {
+      Name: new FormControl(this.TeamForm.name, Validators.required),
+      Sport: new FormControl(this.TeamForm.sport, Validators.required),
+      UserId: new FormControl(this.TeamForm.userId, Validators.required),
+      }
+    )
+
+
+  }})
+  this.GetById(this._activatedRoute.snapshot.params['id'])
+}
 
   validateAllFormFields(formGroup: FormGroup) { 
 
@@ -57,8 +62,9 @@ export class CreateComponent implements OnInit {
       this._teamsService.CreateTeam(this.fg)
       }
 
-    
-  
-
+      GetById(id : string){
+      
+        this._teamsService.GetById(id)
+      }
 
 }

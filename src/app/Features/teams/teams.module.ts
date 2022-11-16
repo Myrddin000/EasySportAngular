@@ -16,6 +16,8 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { DetailsComponent } from './pages/details/details.component';
 import { CreateComponent } from './pages/create/create.component';
+import { DockModule } from 'primeng/dock';
+import { UpdateComponent } from './pages/update/update.component';
 
 
 
@@ -23,7 +25,8 @@ import { CreateComponent } from './pages/create/create.component';
   declarations: [
     TeamsComponent,
     DetailsComponent,
-    CreateComponent
+    CreateComponent,
+    UpdateComponent
   ],
   imports: [
     CommonModule,
@@ -39,6 +42,7 @@ import { CreateComponent } from './pages/create/create.component';
     TableModule,
     ToolbarModule,
     SplitButtonModule,
+    DockModule,
     
   ]
 })

@@ -4,7 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { UsersService } from '../services/users.service';
-import { UserConnected, UsersDisplay } from './models';
+import { LoginUser, UserConnected, UsersDisplay } from './models';
 
 
 @Component({
@@ -24,6 +24,12 @@ export class UsersComponent /*implements OnInit*/ {
 
   index!: number
 
+  //tests:
+
+  // UserRegistered : LoginUser | null = null
+
+  // UserConnected : UserConnected = {token :'', pseudo : '', email :'', connect : false, role : 3}
+
   constructor(private _usersService : UsersService, private _router : Router, private _Http : HttpClient,) { }
 
  
@@ -38,7 +44,7 @@ export class UsersComponent /*implements OnInit*/ {
 
         this.items = [
           {
-              label: 'Update',
+              label: 'Edit',
               icon: 'pi pi-refresh',
               command: () => {
 
@@ -59,6 +65,7 @@ export class UsersComponent /*implements OnInit*/ {
 
     GetUsersList(){
       this._usersService.GetUsersList();
+      
     }
 
     DeleteUser(){

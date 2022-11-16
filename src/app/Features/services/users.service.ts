@@ -63,7 +63,7 @@ export class UsersService{
 
     GetById(id : string){
       this._Http.get<UserForm>(environment.api_base_url + 'User/GetById?Id=' + id).subscribe({
-        next: (data : UserForm) => {this.UserForm = data, console.log(this.UserForm)
+        next: (data : UserForm) => {this.UserForm = data, console.log(this.UserForm.pseudo)
         , this.StateSubjectUserForm.next(this.UserForm) },
     
         error: (response) => {this._messageService.add({severity: 'error', summary: response.error, life: 3000}), console.log(response.error);

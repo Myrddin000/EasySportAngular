@@ -1,1 +1,60 @@
-<p>details works!</p>
+
+<p-dock [model]="dockItems" position="bottom">
+    <ng-template pTemplate="item" let-item>
+        <img [src]="item.icon" [alt]="item.label">
+    </ng-template>
+</p-dock>
+
+
+<br><br>
+<div class="card" *ngIf="TeamDetails">
+    <div class="flex flex-column card-container">
+        <div class="title flex align-items-center justify-content-center font-bold text-white border-round h-5rem mt-2">{{TeamDetails.name}}</div>
+    </div>
+</div><br><br><br><br><br>
+
+<div id="content">
+    <div class="card">
+        <div class="card-container overflow-hidden">
+            <div class="flex">
+                <div class="stat flex-column flex-1 flex align-items-center justify-content-center m-2 px-5 py-3 border-round">
+                    
+                    <div class="card"><img class="iconshoes" src="assets/images/shoes.png" alt="logo"></div>
+                    <div class="card">
+                        <div class="flex flex-column card-container green-container">
+                            <div class="flex align-items-center justify-content-center font-bold text-white border-round ">Players Numbers : </div>
+                            <div class="flex align-items-center justify-content-center font-bold text-white border-round mt-2">20</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat flex-column flex-1 flex align-items-center justify-content-center m-2 px-5 py-3 border-round">
+                    
+                    <div class="card"><img class="iconfield" src="assets/images/field.png" alt="logo"></div><br>
+                    <div class="card">
+                        <div class="flex flex-column card-container green-container">
+                            <div class="flex align-items-center justify-content-center font-bold text-white border-round ">Games Numbers : </div>
+                            <div class="flex align-items-center justify-content-center font-bold text-white border-round mt-2">25</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat flex-column flex-1 flex align-items-center justify-content-center m-2 px-5 py-3 border-round">
+                    
+                    <div class="card"><img class="iconball" src="assets/images/ball.png" alt="logo"></div><br>
+                    <div class="card">
+                        <div class="flex flex-column card-container green-container">
+                            <div class="flex align-items-center justify-content-center font-bold text-white border-round ">Goals Numbers : </div>
+                            <div class="flex align-items-center justify-content-center font-bold text-white border-round mt-2">310</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="logo" *ngIf="TeamDetails">
+        <img class="imglogo" src="assets/images/logo.png" alt="logo">
+    </div>
+</div>
+
+
+

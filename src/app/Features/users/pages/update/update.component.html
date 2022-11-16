@@ -2,8 +2,8 @@
 
 <div id="container"> 
     <div class="card" id="responsive">
-        <p-card header="Edit"> 
-            <form [formGroup]="fg" (ngSubmit)="submit()">
+        <p-card header="Edit User"> 
+            <form [formGroup]="fg" *ngIf="UserForm === undefined ? false : true" (ngSubmit)="submit()">
 
 
                 <!-- Peudo -->
@@ -11,7 +11,7 @@
                     <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
                     <input type="text" formControlName="Pseudo" pInputText placeholder="Pseudo">   
                     
-                    <!-- value="{{this.UserForm.pseudo}}" -->
+                    
                     
                 </div>
                 <div id="InvalidState" *ngIf="hasError(fg,'Pseudo', 'required')">
@@ -25,7 +25,7 @@
                     <span class="p-inputgroup-addon"><i class="pi pi-send"></i></span>
                     <input type="text" formControlName="Email" pInputText placeholder="Email">    
                     
-                    <!-- value="{{this.UserForm.email}}" -->
+                    
 
                 </div>
     
@@ -43,7 +43,7 @@
                     <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
                     <input type="password" formControlName="Password" pInputText placeholder="Mot de passe">     
                     
-                    <!-- value="{{this.UserForm.password}}" -->
+                    
 
                 </div>
                 
@@ -58,7 +58,7 @@
                     <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
                     <input type="password" formControlName="ConfirmPassword" pInputText placeholder="Mot de passe">         
 
-                    <!-- value="{{this.UserForm.password}}" -->
+                    
 
                 </div>
     
