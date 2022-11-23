@@ -27,9 +27,6 @@ export class LoginComponent implements OnInit {
         this._router.navigate(['home'])
       }
     }
-    // hasError(myForm : FormGroup, inputName : String, validators : string) : boolean | undefined {
-    //   return myForm.get(inputName).hasError(validators) && (myForm.get(inputName).touched || (myForm.get(inputName)).dirty)
-    // }
 
     submit(){
       if(this.fg.invalid){

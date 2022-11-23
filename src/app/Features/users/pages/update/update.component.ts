@@ -39,8 +39,6 @@ export class UpdateComponent implements OnInit {
 
   }
 
-
-
   validateAllFormFields(formGroup: FormGroup) { 
 
     Object.keys(formGroup.controls).forEach(field => {  
@@ -60,9 +58,6 @@ export class UpdateComponent implements OnInit {
     return myForm.get(inputName)?.hasError(validator) && (myForm.get(inputName)?.touched|| (myForm.get(inputName)?.dirty))
   }
 
-
-  //trouver moyen d appliquer setvalue ...
-  
   submit(){
 
     if (this.fg.invalid) {

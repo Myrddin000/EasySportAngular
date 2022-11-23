@@ -5,7 +5,12 @@
   </div>
 
   <div id="Mobile" *ngIf="UserConnected.connect">
+
+    <span>
+      <p-chip label="{{UserConnected.pseudo}}" image="./assets/images/loginball.png" styleClass="mr-2 custom-chip"></p-chip>
+  </span>
     <button type="button" pButton class="p-button-raised p-button-rounded" icon="pi pi-sign-out" style="margin-left:.25em" (click)="Logout()"></button>
+    
   </div>
 
 </p-menubar>

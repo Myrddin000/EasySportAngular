@@ -14,7 +14,8 @@ import { CardModule} from 'primeng/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { DockModule } from 'primeng/dock';
-
+import { ChipModule } from 'primeng/chip';
+import { TokenInterceptorService } from './Features/services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -35,11 +36,16 @@ import { DockModule } from 'primeng/dock';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     DockModule,
+    ChipModule,
   ],
 
 
   providers: [{provide : LOCALE_ID, useValue : 'fr-BE'},
-  MessageService],
+  MessageService, {
+      provide : HTTP_INTERCEPTORS, 
+      useClass : TokenInterceptorService,
+      multi : true
+  }],
   bootstrap: [AppComponent]
 
   

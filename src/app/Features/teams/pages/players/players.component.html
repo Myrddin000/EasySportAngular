@@ -1,0 +1,38 @@
+<p>players works!</p>
+
+
+<br>
+<div id="container">
+    <p-card header="Players" > 
+        <p-table [value]="Players"> 
+            
+            <ng-template pTemplate = "header">
+                <tr>
+                    <th pSortableColumn="name" style="width:30%; color: #81c784;">Pseudo
+                        <p-sortIcon field="name"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="sport" style="width:30%; color: #81c784;">Email
+                        <p-sortIcon field="sport"></p-sortIcon>
+                    </th>
+                    <th>
+                        <div>
+                            <button type="button" label="JOIN" pButton class="p-button-primary p-button-rounded" icon="pi pi-plus-circle" style="margin-left:.25em;" (click)="AddPlayer(this.TeamId)"></button>
+                            
+                            <button type="button" label="UNJOIN" pButton class="p-button-warning p-button-rounded" icon="pi pi-minus-circle" style="margin-left:.25em; float: right;" (click)="DeletePlayer(this.TeamId)"></button>
+                            
+                        </div>
+                    </th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-Players>
+
+                <tr>
+                    <td>{{Players.pseudo}}</td>
+                    <td>{{Players.email}}</td>
+                    
+                </tr>
+            </ng-template>
+        </p-table>
+    </p-card>
+</div>

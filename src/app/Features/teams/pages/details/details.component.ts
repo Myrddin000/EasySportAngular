@@ -35,32 +35,47 @@ export class DetailsComponent implements OnInit {
     this.dockItems = [
       {
           label: 'Players',
-          icon: "assets/images/dock/players.svg"    
+          icon: "assets/images/dock/players.svg", 
+          command: () => {
+            this.GoToPlayers();
+        }   
       },
       {
           label: 'Schedule',
-          icon: "assets/images/dock/schedule.svg"
+          icon: "assets/images/dock/schedule.svg",
+          command: () => {
+            this.GoToSchedule();
+          }
       },
       {
           label: 'Chat',
-          icon: "assets/images/dock/chat.svg"    
+          icon: "assets/images/dock/chat.svg",  
+          command: () => {
+            this.GoToChat();
+          }  
       },
       {
           label: 'Stats',
-          icon: "assets/images/dock/stat.svg"    
+          icon: "assets/images/dock/stat.svg",  
+          command: () => {
+            this.GoToStats();
+          }  
       },
       {
           label: 'Settings',
-          icon: "assets/images/dock/settings.svg"    
+          icon: "assets/images/dock/settings.svg",
+          command: () => {
+            this.GoToSettings();
+          }    
       }
     ]
 
 
-
-    
   }
   GetTeamDetails(id: string) {
-    this._teamsService.GetTeamDetails(id);
+    console.log(this._activatedRoute.snapshot.params['id']);
+    
+    this._teamsService.GetTeamDetails(this._activatedRoute.snapshot.params['id']);
     console.log(this.TeamDetails);
     
   }
@@ -69,5 +84,33 @@ export class DetailsComponent implements OnInit {
     this._teamsService.GetTeamsList();
     
   }
+
+  GoToPlayers(){
+    
+    this._router.navigate(['teams/players/' + this._activatedRoute.snapshot.params['id']])
+  }
+
+  GoToSchedule(){
+    
+    this._router.navigate(['teams/schedule/'])
+  }
+
+  GoToChat(){
+    
+    this._router.navigate(['teams/chat/'])
+  }
+
+  GoToStats(){
+    
+    this._router.navigate(['teams/stats/'])
+  }
+  GoToSettings(){
+    
+    this._router.navigate(['teams/settings/'])
+  }
+
+
+
+
 
 }

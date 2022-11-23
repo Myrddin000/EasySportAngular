@@ -17,3 +17,22 @@ export interface TeamsDisplay {
   //   sport: string;
   //   userId: string;
   // }
+  export interface Players{
+    id: string;
+    pseudo: string;
+    email: string;
+    userId: string;
+    available: boolean;
+    notAvailable: boolean;
+    pending: boolean
+
+  }
+
+  export interface Teamplayers{
+    teamId : string;
+    userId : string;
+    Pseudo : string;
+    Email : string;
+  }
+
+  

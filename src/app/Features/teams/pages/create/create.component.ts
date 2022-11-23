@@ -42,6 +42,7 @@ export class CreateComponent implements OnInit {
       }
     });
   }
+  
     hasError(myForm : FormGroup, inputName : string, validator : string) : boolean | undefined {
 
       return myForm.get(inputName)?.hasError(validator) && (myForm.get(inputName)?.touched|| (myForm.get(inputName)?.dirty))
