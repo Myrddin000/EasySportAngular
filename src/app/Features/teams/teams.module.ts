@@ -18,11 +18,12 @@ import { DetailsComponent } from './pages/details/details.component';
 import { CreateComponent } from './pages/create/create.component';
 import { DockModule } from 'primeng/dock';
 import { UpdateComponent } from './pages/update/update.component';
-import { ScheduleComponent } from './pages/schedule/schedule.component';
-import { ChatComponent } from './pages/chat/chat.component';
-import { StatsComponent } from './pages/stats/stats.component';
-import { SettingsComponent } from './pages/settings/settings.component';
-import { PlayersComponent } from './pages/players/players.component';
+import { StatsComponent } from './pages/details/stats/stats.component';
+import { PlayersComponent } from './pages/details/players/players.component';
+import { IndexComponent } from './pages/details/index/index.component';
+import { SettingsComponent } from './pages/details/settings/settings.component';
+import { ScheduleComponent } from './pages/details/schedule/schedule.component';
+import { ChatComponent } from './pages/details/chat/chat.component';
 
 
 
@@ -38,6 +39,7 @@ import { PlayersComponent } from './pages/players/players.component';
     StatsComponent,
     SettingsComponent,
     PlayersComponent,
+    IndexComponent,
   ],
   imports: [
     CommonModule,

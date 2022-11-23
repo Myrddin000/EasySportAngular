@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { TeamDetailsService } from 'src/app/Features/services/team-details.service';
-import { Players } from '../../models';
+import { Players } from '../../../models';
 
 
 @Component({

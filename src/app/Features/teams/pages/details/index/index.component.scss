@@ -1,0 +1,75 @@
+
+.logo{
+    width: 70%;
+    height: 150px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    text-align: center;
+  }
+
+// .logo{
+//   background-image: '\assets\images\logo.png';
+//   // background-attachment: fixed;
+// }
+
+img{
+    width: 35%;
+  }
+
+
+.title{
+    width: 20%;
+    margin: 0 auto;
+    border: 1px solid #4b4b4b;
+    border-radius:0.5rem;
+    color: #81C784;
+    font-size: 40px !important;
+    background-color: #1e1e1e; 
+  }
+
+#content{
+    width: 70%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid #4b4b4b;
+    border-radius:0.5rem;
+    background-color: #1e1e1e; 
+  } 
+
+#content :last-child{
+    border-right: none;
+  }
+
+  .stat{
+    width: 15%;
+    margin: 15px 15px;
+    text-align: center;
+    border-right: 1px solid #4b4b4b;
+    color: #81C784;
+   
+  }
+
+  .iconshoes{
+    width: 95px;
+    height: 95px;
+    
+  } 
+  .iconfield{
+    width: 70px;
+    height: 70px;
+  }
+  .iconball{
+    width: 55px;
+    height: 55px;
+  }
+
+  .flex{
+    font-size: 20px;
+  }
+  .test{
+    border: 1px solid red;
+  }

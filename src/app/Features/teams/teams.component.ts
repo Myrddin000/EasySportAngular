@@ -22,6 +22,8 @@ export class TeamsComponent implements OnInit {
 
   ngOnInit(): void {
 
+    localStorage.removeItem('TeamId')
+
     this._teamsService.StateSubjectTeamsList.subscribe({
       next : (data : TeamsDisplay[]) => this.TeamsList = data
     })

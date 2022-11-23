@@ -15,24 +15,34 @@ import { TeamsDisplay } from '../../models';
 export class DetailsComponent implements OnInit {
 
   dockItems!: MenuItem[];
-  TeamDetails! : TeamsDisplay;
+  id! : string;
 
 
   constructor(private _teamsService : TeamsService, private _formBuilder : FormBuilder, private _Http : HttpClient, private _router : Router, private _activatedRoute : ActivatedRoute) { }
 
   ngOnInit(): void {
 
-
-    this._teamsService.StateSubjectTeamDetails.subscribe({
-      next : (data : TeamsDisplay) => this.TeamDetails = data
-    })
-
-    this.GetTeamDetails(this._activatedRoute.snapshot.params['id']);
-
     
+    
+
+    if (localStorage.getItem('TeamId') === null) {
+
+      localStorage.removeItem('TeamId')
+      localStorage.setItem('TeamId', this._activatedRoute.snapshot.params['id'])
+    }
+    this.id = localStorage['TeamId']
+
+    this.GetTeamDetails();
 
 
     this.dockItems = [
+      {
+        label: 'home',
+        icon: "assets/images/dock/home.svg",
+        command: () => {
+          this.GoToDetails();
+        }    
+      },
       {
           label: 'Players',
           icon: "assets/images/dock/players.svg", 
@@ -67,46 +77,49 @@ export class DetailsComponent implements OnInit {
           command: () => {
             this.GoToSettings();
           }    
-      }
+      },
+      
     ]
 
 
   }
-  GetTeamDetails(id: string) {
-    console.log(this._activatedRoute.snapshot.params['id']);
-    
-    this._teamsService.GetTeamDetails(this._activatedRoute.snapshot.params['id']);
-    console.log(this.TeamDetails);
-    
+  
+  GetTeamDetails() {
+    this._teamsService.GetTeamDetails(localStorage['TeamId']);
+ 
   }
 
   GetTeamsList(){
     this._teamsService.GetTeamsList();
-    
+  }
+
+  GoToDetails(){
+    this._router.navigate(['teams/details/:id/index/'])
+    this.GetTeamDetails();
   }
 
   GoToPlayers(){
     
-    this._router.navigate(['teams/players/' + this._activatedRoute.snapshot.params['id']])
+    this._router.navigate(['teams/details/:id/players/' + this.id])
   }
 
   GoToSchedule(){
     
-    this._router.navigate(['teams/schedule/'])
+    this._router.navigate(['teams/details/:id/schedule/'])
   }
 
   GoToChat(){
     
-    this._router.navigate(['teams/chat/'])
+    this._router.navigate(['teams/details/:id/chat/'])
   }
 
   GoToStats(){
     
-    this._router.navigate(['teams/stats/'])
+    this._router.navigate(['teams/details/:id/stats/'])
   }
   GoToSettings(){
     
-    this._router.navigate(['teams/settings/'])
+    this._router.navigate(['teams/details/:id/settings/'])
   }
 
 
