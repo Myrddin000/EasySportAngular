@@ -17,15 +17,24 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { DetailsComponent } from './pages/details/details.component';
 import { CreateComponent } from './pages/create/create.component';
 import { DockModule } from 'primeng/dock';
+import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+
 import { UpdateComponent } from './pages/update/update.component';
 import { StatsComponent } from './pages/details/stats/stats.component';
 import { PlayersComponent } from './pages/details/players/players.component';
 import { IndexComponent } from './pages/details/index/index.component';
-import { SettingsComponent } from './pages/details/settings/settings.component';
 import { ScheduleComponent } from './pages/details/schedule/schedule.component';
 import { ChatComponent } from './pages/details/chat/chat.component';
+import { SettingsComponent } from './pages/details/settings/settings.component';
 
 
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin
+]);
 
 
 @NgModule({
@@ -40,7 +49,10 @@ import { ChatComponent } from './pages/details/chat/chat.component';
     SettingsComponent,
     PlayersComponent,
     IndexComponent,
+  
+    
   ],
+
   imports: [
     CommonModule,
     TeamsRoutingModule,
@@ -56,7 +68,10 @@ import { ChatComponent } from './pages/details/chat/chat.component';
     ToolbarModule,
     SplitButtonModule,
     DockModule,
+    FullCalendarModule
     
-  ]
+    
+    
+  ],
 })
 export class TeamsModule { }

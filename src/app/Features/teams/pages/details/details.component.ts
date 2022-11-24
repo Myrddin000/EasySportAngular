@@ -4,7 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TeamsService } from 'src/app/Features/services/teams.service';
 import { MenuItem } from 'primeng/api';
-import { TeamsDisplay } from '../../models';
+import { GameTime } from '../../models';
 
 
 
@@ -16,7 +16,7 @@ export class DetailsComponent implements OnInit {
 
   dockItems!: MenuItem[];
   id! : string;
-
+  GamesList : GameTime[] = [];
 
   constructor(private _teamsService : TeamsService, private _formBuilder : FormBuilder, private _Http : HttpClient, private _router : Router, private _activatedRoute : ActivatedRoute) { }
 

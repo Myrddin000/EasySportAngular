@@ -16,13 +16,28 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { DockModule } from 'primeng/dock';
 import { ChipModule } from 'primeng/chip';
 import { TokenInterceptorService } from './Features/services/token-interceptor.service';
+import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
+import timeGridPlugin from '@fullcalendar/timegrid';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr);
+import { registerLocaleData } from '@angular/common'
+
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin,
+  timeGridPlugin
+]);
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    
+
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,10 +52,14 @@ import { TokenInterceptorService } from './Features/services/token-interceptor.s
     BrowserAnimationsModule,
     DockModule,
     ChipModule,
+    FullCalendarModule,
+    
+     
+    
   ],
 
 
-  providers: [{provide : LOCALE_ID, useValue : 'fr-BE'},
+  providers: [{provide : LOCALE_ID, useValue : 'fr-FR'},
   MessageService, {
       provide : HTTP_INTERCEPTORS, 
       useClass : TokenInterceptorService,

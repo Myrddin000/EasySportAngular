@@ -17,6 +17,7 @@ export interface TeamsDisplay {
   //   sport: string;
   //   userId: string;
   // }
+  
   export interface Players{
     id: string;
     pseudo: string;
@@ -33,6 +34,16 @@ export interface TeamsDisplay {
     userId : string;
     Pseudo : string;
     Email : string;
+  }
+
+  export interface GameTime{
+    
+    id : string;
+    title : string;
+    date : Date;
+    startTime : Date;
+    endTime : Date;
+   
   }
 
   

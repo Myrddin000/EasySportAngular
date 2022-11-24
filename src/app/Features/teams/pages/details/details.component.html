@@ -1,10 +1,10 @@
-
+<div #container>
 <p-dock [model]="dockItems" position="bottom">
     <ng-template pTemplate="item" let-item>
         <img [src]="item.icon" [alt]="item.label">
     </ng-template>
 </p-dock>
-
+</div>
 <router-outlet></router-outlet>
 
 
