@@ -3,7 +3,8 @@ const fs = require("fs");
 const files = [
   "node_modules/@fullcalendar/common/main.js",
   "node_modules/@fullcalendar/daygrid/main.js",
-  "node_modules/@fullcalendar/timegrid/main.js"
+  "node_modules/@fullcalendar/timegrid/main.js",
+
 ];
 
 for (const fullCalendarFile of files) {

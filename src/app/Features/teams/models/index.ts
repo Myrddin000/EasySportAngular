@@ -46,4 +46,15 @@ export interface TeamsDisplay {
    
   }
 
+  export interface GameForm{
+    
+   
+    title : string;
+    date : Date;
+    startTime : Date;
+    endTime : Date;
+    teamID : string;
+   
+  }
+
   

@@ -14,12 +14,10 @@ export class TokenInterceptorService {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
 
-            console.log(this.authService.UserConnected.token);
     
     const token = this.authService.UserConnected;
     if (token) {
 
-            console.log(token);
       
       request = request.clone({
         setHeaders: {
@@ -27,7 +25,6 @@ export class TokenInterceptorService {
         },
       });
     }
-            console.log(request);
     
     return next.handle(request)
   }

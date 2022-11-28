@@ -25,9 +25,7 @@ export class ScheduleComponent implements OnInit {
   };
 
   GamesList : GameTime[] = [];
-  isDivVisible = true;
-  private isButtonVisible = true;
-
+  ShowDiv = false
   constructor(private _gamesService : GamesService) { }
 
   ngOnInit(): void {
@@ -41,12 +39,12 @@ export class ScheduleComponent implements OnInit {
 
   }
 
-  // dateClick(model: any) {
-  //   console.log(model);
-  // }
-
   GetGames(){
     this._gamesService.GetGames(localStorage['TeamId']);
   }
+
+  toggleDisplayDiv() {  
+    this.ShowDiv = !this.ShowDiv;  
+  } 
 
 }

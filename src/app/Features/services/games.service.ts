@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { GameTime } from '../teams/models';
+import { GameForm, GameTime } from '../teams/models';
 import { MessageService } from 'primeng/api';
 import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,18 @@ export class GamesService {
       },
       error : (response) => {this._messageService.add({severity:'error', summary: response.error, life: 3000})}    
     })
+  }
+
+  AddGame(value : FormGroup){
+    console.log(value.value);
+    
+    return this._Http.post(environment.api_base_url + 'Game/', value.value).subscribe(
+      
+      
+      {
+        next: () => {this.GetGames(localStorage['TeamId'])},
+        error : (response) => {this._messageService.add({severity:'error', summary: response.error, life: 3000})}
+      })
   }
 
 

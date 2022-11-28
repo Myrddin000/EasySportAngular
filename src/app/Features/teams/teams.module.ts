@@ -28,6 +28,7 @@ import { IndexComponent } from './pages/details/index/index.component';
 import { ScheduleComponent } from './pages/details/schedule/schedule.component';
 import { ChatComponent } from './pages/details/chat/chat.component';
 import { SettingsComponent } from './pages/details/settings/settings.component';
+import { AddScheduleComponent } from './pages/details/schedule/add-schedule/add-schedule.component';
 
 
 
@@ -49,6 +50,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     SettingsComponent,
     PlayersComponent,
     IndexComponent,
+    AddScheduleComponent,
+    
   
     
   ],

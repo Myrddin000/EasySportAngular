@@ -1,0 +1,69 @@
+<p>add-schedule works!</p>
+
+<div id="container"> 
+    <div class="card" id="responsive">
+        <p-card header="Plan a match"> 
+            <form [formGroup]="fg" (ngSubmit)="submit()">
+                <!-- Title -->
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <input type="text" formControlName="title" pInputText placeholder="Title">         
+                </div>
+                <div id="InvalidState" *ngIf="hasError(fg,'title', 'required')">
+                    <p><i class="pi pi-exclamation-circle"></i>Obligatoire!</p>
+                </div>
+    
+                <br>
+    
+                <!-- Date -->
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-send"></i></span>
+                    <input type="date" formControlName="date" pInputText placeholder="Date">         
+                </div>
+    
+                <div id="InvalidState" *ngIf="hasError(fg,'date', 'required')">
+                <p><i class="pi pi-exclamation-circle"></i>Obligatoire!</p>
+                </div>
+                <br>
+
+                <!-- startTime -->
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-send"></i></span>
+                    <input type="datetime-local" formControlName="startTime" pInputText placeholder="startTime">         
+                </div>
+    
+                <div id="InvalidState" *ngIf="hasError(fg,'startTime', 'required')">
+                <p><i class="pi pi-exclamation-circle"></i>Obligatoire!</p>
+                </div>
+                <br>
+
+                <!-- endTime -->
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-send"></i></span>
+                    <input type="datetime-local" formControlName="endTime" pInputText placeholder="endTime">         
+                </div>
+    
+                <div id="InvalidState" *ngIf="hasError(fg,'endTime', 'required')">
+                <p><i class="pi pi-exclamation-circle"></i>Obligatoire!</p>
+                </div>
+                <br>
+
+
+                <!-- TeamId -->
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-id-card"></i></span>
+                    <input type="text" formControlName="teamId" pInputText placeholder=TeamId>         
+                </div>
+                
+                <div id="InvalidState" *ngIf="hasError(fg,'teamId', 'required')">
+                    <p><i class="pi pi-exclamation-circle"></i>Obligatoire!</p>
+                </div>
+    
+                <br><br><br>
+    
+                <div>
+                    <button type="submit" pButton icon="pi pi-check" style="margin-left:.25em"></button>
+                </div>
+            </form>
+        </p-card>
+</div>   

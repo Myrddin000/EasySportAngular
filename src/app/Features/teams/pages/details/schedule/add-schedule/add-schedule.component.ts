@@ -2,29 +2,32 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { TeamsService } from 'src/app/Features/services/teams.service';
+import { GamesService } from 'src/app/Features/services/games.service';
 
 @Component({
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss']
+  templateUrl: './add-schedule.component.html',
+  styleUrls: ['./add-schedule.component.scss']
 })
-export class CreateComponent implements OnInit {
+export class AddScheduleComponent implements OnInit {
+
 
   fg! : FormGroup
 
-  constructor(private _teamsService : TeamsService, private _Http : HttpClient, private _router : Router, private _formBuilder : FormBuilder) { }
+  constructor(private _gamesService : GamesService, private _Http : HttpClient, private _router : Router, private _formBuilder : FormBuilder) { }
 
   ngOnInit(): void {
 
     this.fg = this._formBuilder.group({
-      Name: [null, Validators.required],
-      Sport: [null, Validators.required],
-      UserId: [localStorage.getItem('id'), Validators.required],
+
+      title: [null, Validators.required],
+      date: [null, Validators.required],
+      startTime: [null, Validators.required],
+      endTime: [null, Validators.required],
+      teamId: [localStorage.getItem('TeamId'), Validators.required],
+
     })
-   
+
   }
-
-
   validateAllFormFields(formGroup: FormGroup) { 
 
     Object.keys(formGroup.controls).forEach(field => {  
@@ -51,11 +54,7 @@ export class CreateComponent implements OnInit {
         this.validateAllFormFields(this.fg)
         return
       }
-      this._teamsService.CreateTeam(this.fg)
+      this._gamesService.AddGame(this.fg)
       }
-
-    
-  
-
 
 }

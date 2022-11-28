@@ -1,16 +1,11 @@
-<p>schedule works!</p>
-
-<div id="calendar">
-<full-calendar [options]="calendarOptions" style="display:none;"></full-calendar>
+<br><br>  
+<div id="calendar" [hidden]="ShowDiv">
+<full-calendar [options]="calendarOptions" ></full-calendar>
 </div>
 
-
-<br>
-<div id="container">
-    <p-card header="Games" > 
-        <div>
-            <button type="button" label="NEW" pButton class="p-button-rounded" icon="pi pi-plus-circle" style="margin-left:.25em;" [routerLink]="['/teams/create']" ></button>
-        </div>
+<br><br>
+<div id="container" [hidden]="!ShowDiv">
+    <p-card header="Games"> 
         <p-table [value]="GamesList"> 
             
             <ng-template pTemplate = "header">
@@ -37,12 +32,16 @@
                     <td>{{GamesList.date | date: 'shortDate' }}</td>     
                     <td>{{GamesList.startTime | date: 'shortTime'}}</td>
                     <td>{{GamesList.endTime | date: 'shortTime'}}</td>
-                    
-                    
                 </tr>
-
-
             </ng-template>
         </p-table>
     </p-card>
+</div><br><br>
+
+<div class="someButton">
+    <button type="button" label="NEW" pButton class="p-button-rounded" icon="pi pi-plus-circle" style="margin-left:.25em;" [routerLink]="['/teams/details/schedule/addschedule']" ></button>
+</div>
+
+<div class="someButton">
+<button type="button" pButton class="p-button-rounded" (click)=toggleDisplayDiv()>Calendar / List</button>
 </div>

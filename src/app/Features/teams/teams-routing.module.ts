@@ -10,6 +10,7 @@ import { TeamsComponent } from './teams.component';
 import { ScheduleComponent } from './pages/details/schedule/schedule.component';
 import { ChatComponent } from './pages/details/chat/chat.component';
 import { SettingsComponent } from './pages/details/settings/settings.component';
+import { AddScheduleComponent } from './pages/details/schedule/add-schedule/add-schedule.component';
 
 const routes: Routes = [{ path: '', component: TeamsComponent, children:[
 
@@ -21,12 +22,16 @@ const routes: Routes = [{ path: '', component: TeamsComponent, children:[
     {path: '', redirectTo: 'index', pathMatch: 'full'},
     {path: 'index', component : IndexComponent},
     {path: 'players/:id', component : PlayersComponent},
-    {path: 'schedule', component : ScheduleComponent},
     {path: 'chat', component : ChatComponent},
     {path: 'stats', component : StatsComponent},
     {path: 'settings', component : SettingsComponent},
-  ]}
-];
+    {path: 'schedule', component : ScheduleComponent},
+    {path: 'addschedule', component : AddScheduleComponent}
+      ]
+  },
+    
+  ]
+;
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

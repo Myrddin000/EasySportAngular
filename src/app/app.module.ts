@@ -25,10 +25,14 @@ registerLocaleData(localeFr);
 import { registerLocaleData } from '@angular/common'
 
 
+
+
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
   interactionPlugin,
-  timeGridPlugin
+  timeGridPlugin,
+   
+
 ]);
 
 @NgModule({
